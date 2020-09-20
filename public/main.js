@@ -8,7 +8,9 @@ const shortenButton = document.querySelector("#shorten");
 const responseField = document.querySelector("#responseField");
 
 // AJAX functions
-const shortenUrl = () => {};
+const shortenUrl = () => {
+  const urlToShorten = inputField.value;
+};
 
 // Clear page and call AJAX functions
 const displayShortUrl = (event) => {
