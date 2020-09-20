@@ -11,6 +11,15 @@ const responseField = document.querySelector("#responseField");
 const shortenUrl = () => {
   const urlToShorten = inputField.value;
   const data = JSON.stringify({ destination: urlToShorten });
+
+  const xhr = new XMLHttpRequest();
+  xhr.responseType = "json";
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      renderRawResponse(xhr.response);
+    }
+  };
+  xhr.open("POST", url);
 };
 
 // Clear page and call AJAX functions
