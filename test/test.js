@@ -8,15 +8,15 @@ const code = fs.readFileSync("public/main.js", "utf8");
 describe("", function () {
   it("", function () {
     let structureOne = function () {
-      const apiKey = $apiKey;
+      const apiKey = $key;
     };
 
     varCallbacks = [
-      function ($apiKey) {
-        if ($apiKey.value === "<Your API Key>") {
+      function ($key) {
+        if ($key.value === "<Your API Key>") {
           return {
             failure:
-              "Did you replace `'<Your API Key>'` with your actual Rebrandly API key?",
+              "Did you replace '<Your API Key>' with your actual API key?",
           };
         }
         return true;
@@ -26,8 +26,8 @@ describe("", function () {
     let isMatchOne = Structured.match(code, structureOne, { varCallbacks });
     assert.isOk(
       isMatchOne,
-      varCallbacks.failure ||
-        "Did you assign `apiKey` to your actual Rebrandly API key?"
+      varCallbacks.error ||
+        "Did you reassign `apiKey` to your Rebrandly API key?"
     );
   });
 });
