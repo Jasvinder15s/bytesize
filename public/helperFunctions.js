@@ -22,3 +22,16 @@ const renderRawResponse = (res) => {
     responseField.innerHTML = `${structuredRes}`;
   }
 };
+
+// Renders the JSON that was returned when the Promise from fetch resolves.
+const renderJsonResponse = (response) => {
+  // Creates an empty object to store the JSON in key-value pairs
+  let rawJson = {};
+  for (let key in response) {
+    rawJson[key] = response[key];
+  }
+  // Converts JSON into a string and adding line breaks to make it easier to read
+  rawJson = JSON.stringify(rawJson).replace(/,/g, ", \n");
+  // Manipulates responseField to show the returned JSON.
+  responseField.innerHTML = `<pre>${rawJson}</pre>`;
+};
