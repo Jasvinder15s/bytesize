@@ -19,6 +19,10 @@ const shortenUrl = () => {
       apikey: apiKey,
     },
     body: data,
+  }).then((response) => {
+    if (response.ok) {
+      renderJsonResponse(response);
+    }
   });
 };
 
